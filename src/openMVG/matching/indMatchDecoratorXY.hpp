@@ -47,14 +47,13 @@ class IndMatchDecorator
       const IndMatchDecoratorStruct& m2
     )
     {
-      if (m1 == m2) return false;
-
       if (m1.x1 < m2.x1)
-        return m1.y1 < m2.y1;
-      else
-        if (m1.x1 > m2.x1)
-          return m1.y1 < m2.y1;
-      return m1.x1 < m2.x1;
+        return true;
+
+      if (m1.x1 > m2.x1)
+	return false;
+
+      return m1.y1 < m2.y1;
     }
 
     /// Comparison Operator
